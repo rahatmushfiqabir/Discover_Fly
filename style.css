@@ -133,3 +133,16 @@ nav ul li a:hover, a.active{
 .fa-minus{
     color:red;
 }
+
+#confirmation-area{
+    display: none;
+}
+.box-idth{
+    background-color:rgb(110, 191, 245);
+    border-radius: 10px;
+    margin-left: 20px;
+    width: 65%;
+    float: left;
+    padding:  25px;
+    box-shadow: 5px 10px 8px 10px #474545;
+}

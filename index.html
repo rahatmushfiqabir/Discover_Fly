@@ -30,7 +30,8 @@
 
     <!--Booking Section-->
     <main class="main-content container">
-        <div class="booking-form">
+        
+        <div id="submit-area" class="booking-form">
             <h3>Booking Flights</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
@@ -56,10 +57,12 @@
                     <!-- <input class="inp-style inp-width" type="number" name=""> -->
                 </div>
                 <div class="plus-minus-btn">
-                    
-                    <input id="firstClass-count" type="text" class="form-control text-center" value="1">
-                    <button onclick="handleTicketChange('firstClass', true)" class="btn btn-default"><i class="fas fa-plus "></i></button>
-                    <button onclick="handleTicketChange('firstClass', false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                
+                    <input id="firstClass-count" type="text" class="form-control text-center" value="0">
+                    <button onclick="handleTicketChange('firstClass', true)" class="btn btn-default"><i
+                            class="fas fa-plus "></i></button>
+                    <button onclick="handleTicketChange('firstClass', false)" class="btn btn-default"><i
+                            class="fas fa-minus"></i></button>
                 </div>
                 <!-- <h5 id="phone-total">$1219</h5> -->
                 
@@ -71,13 +74,11 @@
                     <!-- <input class="inp-style inp-width" type="number" name=""> -->
                 </div>
                 <div class="plus-minus-btn">
-                    
-            
-                        
-                        <input id="ecoClass-count" type="text" class="form-control text-center pos" value="1">
-                        <button onclick="handleTicketChange('ecoClass', true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
-                        <button onclick="handleTicketChange('ecoClass', false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
-                    
+
+                    <input id="ecoClass-count" type="text" class="form-control text-center pos" value="0">
+                    <button onclick="handleTicketChange('ecoClass', true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                    <button onclick="handleTicketChange('ecoClass', false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                
                 </div>
                 <!-- <h5 id="case-total">$59</h5> -->
             </div>
@@ -109,13 +110,25 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="submit" onclick="passValues();" class="btn-style">Book Now</button>
         </div>
 
         <div class="booking-content">
             <h1>discover <br> around the world</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
         </div>
+       
+        <!-- confirmation -->
+        <section id="confirmation-area">
+  
+            <div id="box" class="box-idth">
+                
+                <h2><strong>Thanks For Booking</strong></h2>
+                
+    
+            </div>
+           
+        </section>
 
               <!-- JS -->
       <script>
@@ -153,8 +166,21 @@
             const ticketCount = parseInt(ticketInput.value);
             return ticketCount;
         }
+        // confirmation
+        const submitBtn = document.getElementById("submit");
+        submitBtn.addEventListener("click", function () {
+            const submitArea = document.getElementById("submit-area");
+            submitArea.style.display = "none";
+            const transactionArea=document.getElementById("confirmation-area");
+            transactionArea.style.display="block";
+        })
 
-       
+        function passValues(){
+            var totalCost = document.getElementById("total-price").value;
+            localStorage.setItem("totalCost");
+            return false;
+        }
+        document.getElementById("total-price").innerHTML=localStorage.getItem("textvalues");
     </script>
     </section>
 
